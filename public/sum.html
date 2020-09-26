@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>sum</title>
+		<script>
+			var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function () {
+						if (xhr.readyState === 4) {
+							if (xhr.status === 200) {
+							document.getElementById('ajax').innerHTML = xhr.responseText;
+							} else {
+									alert(xhr.statusText);
+							}
+						
+						}
+				};
+				xhr.open('GET', 'http://localhost:3000/getData?number=10');
+				
+				function sendAJAX() {
+						xhr.send();
+						// document.getElementById('load').style.display = "none";
+				}
+		</script>
+	</head>
+	<body>
+		<button id="load" onclick="sendAJAX()">example for bringing result for10</button><br>
+		<!-- Assignment 3-4 -->
+		<form method="get">
+			<input type="text" name="number" placeholder="Enter an integer" id="inputInteger">
+			<input type="button" value="Submit" onclick="triggerAJAX()">
+		</form>
+		<script>
+			function triggerAJAX() {
+			var xhr2 = new XMLHttpRequest();
+			xhr2.onreadystatechange = function () {
+				if (xhr2.readyState === 4) {
+					if (xhr2.status === 200) {
+						document.getElementById('ajax').innerHTML = xhr2.responseText;
+					} else {
+								alert(xhr2.statusText);
+					  }
+				}
+			};
+			xhr2.open('GET', 'http://localhost:3000/getData?number=' + document.getElementById('inputInteger').value);
+			xhr2.send();
+			 }
+		</script>
+		<div id="ajax"></div>
+	</body>
+</html>
+ 
+
