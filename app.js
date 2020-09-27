@@ -32,7 +32,8 @@ app.get('/getData', (req, res) => {
 	res.send(`${result}`);
 });
 
-//Assignment4
+//Assignment4 --with pug files
+
 app.get('/myName', (req, res) => {
 	const username = req.cookies.name;
 	if (username) {
@@ -43,8 +44,8 @@ app.get('/myName', (req, res) => {
 });
 
 // app.get('/trackName', (req, res) => {
-// 	res.render('trackname', { name: req.cookies.username });
-// });
+// 	res.render('trackname', { name: req.cookies.username }); 
+// });         --in tutorial video, name and username is reversed
 
 app.get('/trackName', (req, res) => {
 	const username = req.cookies.name;
@@ -58,11 +59,11 @@ app.get('/trackName', (req, res) => {
 // app.all('/trackName', (req, res) => {
 //     console.log(req.body)
 //     res.render('trackname', { name: req.body.username });
-// });
+// });           --didnot use bodyparser and add this code
 
 // app.post('/trackName', (req, res) => {
 // 	res.cookie('username', req.body.username);
-// 	console.log(req.body);
+// 	console.log(req.body);    --will log the input name in terminal
 // 	res.render('trackname', { name: req.body.username });
 // });
 
